@@ -166,7 +166,7 @@
     }
   },
   "generator": "goddessverse-tipsyprompt-export-v1",
-  "source_commit": "3c22f26fb18b144c7c6ea2e2b997f77814929394",
+  "source_commit": "52c21a3afed7001ad6e48ed6e477cd76fe577c0d",
   "source_path": "experiments/tipsyprompt",
   "source_repository": "Goddessverse/lab"
 }
