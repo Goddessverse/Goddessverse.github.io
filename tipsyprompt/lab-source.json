@@ -1,0 +1,172 @@
+{
+  "files": {
+    "assets/coffee.png": {
+      "bytes": 248435,
+      "sha256": "e07b109dc608843083a07681f8b34fdee2ff80c64b2b6d24b3991fa998648cb9"
+    },
+    "assets/grumpy.png": {
+      "bytes": 267244,
+      "sha256": "8697d2810bec48329585cc5fd11f69caf7b6a5d858fe3cd75b51a0053d0d1eb0"
+    },
+    "assets/heart.png": {
+      "bytes": 250073,
+      "sha256": "83abcf376645699c45b3b7b4816e8b9c4ed91c01ea01a63ac1fc61a1c4a952b3"
+    },
+    "assets/lmao-removebg-preview.png": {
+      "bytes": 496035,
+      "sha256": "541ef0f484ed9dd8ca5d889d810643f05c083738bca7d90bee783a830c01c9d4"
+    },
+    "assets/meow.png": {
+      "bytes": 266023,
+      "sha256": "0a36c3bb61e3008e061c1512480d8179072e1de63f56e26818e0b5e6816d7115"
+    },
+    "assets/rae-confused.png": {
+      "bytes": 68656,
+      "sha256": "914f0206dcde3d033c0e2561cd7eec6a518ccc15ccb29f9212743c61a002e735"
+    },
+    "assets/rae-love.png": {
+      "bytes": 266371,
+      "sha256": "2e75dc8ce95f3ece0345312cd3508e291b893526b71b58223e5cdb970a3de1b9"
+    },
+    "assets/rae-scheming.png": {
+      "bytes": 2195888,
+      "sha256": "ad309567597b7dda3cf8622f20e839304e951322d4ab2db032e4168dacc3461c"
+    },
+    "assets/rae-teaching.png": {
+      "bytes": 420787,
+      "sha256": "3cb759ab5edf97a362c43e6561dc12b626f97c55384cea7a931cd641e0f0d167"
+    },
+    "beginners-guide/index.html": {
+      "bytes": 30167,
+      "sha256": "ffd5a3d7e4cd9e766103ead7b1eabf2eac17f71d0a6d3f6286d8f2c9e426d76f"
+    },
+    "beginners-guide/tipsy-ai-prompt-helper.html": {
+      "bytes": 50665,
+      "sha256": "03e51be932007736759b2e6bbb39ca15c0651d35c5b98428334ef377b158adbe"
+    },
+    "beginners-guide/tipsy-json-guide.html": {
+      "bytes": 24178,
+      "sha256": "5ac8980bff01bda1647c01039610c972b5fa6d941f09fbadd85f7b3abca96d7f"
+    },
+    "beginners-guide/tipsy-omegaverse-beginners-guide.html": {
+      "bytes": 33146,
+      "sha256": "933e13a1ab4e4c1031fca1cba35d4a8db52315eac44e9d98c9c156ad5261c009"
+    },
+    "beginners-guide/tipsy-ooc-guide.html": {
+      "bytes": 24409,
+      "sha256": "0ad85786f718fc8aea7d20b87c8fd4404faa6a38cf1640ffaef493f65f217b7a"
+    },
+    "beginners-guide/tipsy-role-cards-guide.html": {
+      "bytes": 22640,
+      "sha256": "e82d0251a535f133210358e122981fcc2ac92aee3e87ea894d4089e7b0902383"
+    },
+    "beginners-guide/tipsy-why-your-bot-goes-weird.html": {
+      "bytes": 29669,
+      "sha256": "91b7f14660281ac56b97b0ed1e7a2458e8e29bac62864a9c6ec9228fe2d38989"
+    },
+    "chaos-studio/assets/00-chaos-studio-team.png": {
+      "bytes": 2671627,
+      "sha256": "eaf59347e9a6847f3db976217b09324445ae9660447a2932f563697b850517c5"
+    },
+    "chaos-studio/assets/01-is-image-gen-down.png": {
+      "bytes": 2570042,
+      "sha256": "7d6ef8d512645a29bf87c2632479802325ecdeaf4872c1b532fb394d15d22846"
+    },
+    "chaos-studio/assets/02-too-sexy.jpeg": {
+      "bytes": 778323,
+      "sha256": "aed3aef4fed7fef3191e83301e9fd57d0a004e22810b0f82ca127f5f232bcc3b"
+    },
+    "chaos-studio/assets/03-collab-drop.png": {
+      "bytes": 2340395,
+      "sha256": "c0c6129011399cd7c03203bf0abbdb1a80c1e837d8899acdd7f0bd685de6e653"
+    },
+    "chaos-studio/assets/04-blue-screen.png": {
+      "bytes": 2570042,
+      "sha256": "7d6ef8d512645a29bf87c2632479802325ecdeaf4872c1b532fb394d15d22846"
+    },
+    "chaos-studio/assets/06-grok-exit.png": {
+      "bytes": 2784238,
+      "sha256": "0860e9fbc0e87d13948e84ad706e120ee43fb4b9a6b603734c6048542e2ec387"
+    },
+    "chaos-studio/assets/07-grok-fail.png": {
+      "bytes": 2605696,
+      "sha256": "0eb47cf46a752aa9b74bcebb835dffa93ba2f0934c80c86facbaa63ab8109192"
+    },
+    "chaos-studio/assets/07-i-can-work-with-that.png": {
+      "bytes": 2643994,
+      "sha256": "de39c771879cb2ed5f66dd92637c6f57bb79b8b27caf333595c52182ee2267d1"
+    },
+    "chaos-studio/assets/08-section-2.png": {
+      "bytes": 2711496,
+      "sha256": "ec321e842b0c2bf93fb1f64081c8d612ce1eebf34779ed3ce6c8933fb58fe21c"
+    },
+    "chaos-studio/assets/09-what-were-we-doing.png": {
+      "bytes": 2717005,
+      "sha256": "7d74c4506f3a577aa0a9c33560d9f350b31615964be2cb2b343ff65ebe06d9b6"
+    },
+    "chaos-studio/assets/10-hi-gio.png": {
+      "bytes": 2159472,
+      "sha256": "e61d074967966a22f58fd17af528fdc1a26ec345333be116b2dbd24c3bcfcf5d"
+    },
+    "chaos-studio/assets/11-stuck.png": {
+      "bytes": 2734883,
+      "sha256": "f939c7f6c8775ce051a669daa4eb6bf29d1408197b06ef259b8c826b38970ce8"
+    },
+    "chaos-studio/assets/12-more-yearning.png": {
+      "bytes": 2731208,
+      "sha256": "6f1ed1104312a0e2cc30dcdf794af2c4bd2dc3c2ec10f788d1564f7506ec74df"
+    },
+    "chaos-studio/assets/14-g-claude-rae.png": {
+      "bytes": 2473395,
+      "sha256": "55dab230115ec1d5d2c2c40edfff15ba2c7f9324d0025e0236142fc85946d984"
+    },
+    "chaos-studio/assets/16-oh-shit.png": {
+      "bytes": 2520482,
+      "sha256": "131439455e21bbe9af8ddf64769c9aa1f4d477d016379d6239149fd729760aba"
+    },
+    "chaos-studio/index (1).html": {
+      "bytes": 14486,
+      "sha256": "1a92ef28ebe403692a8509fffb9836770e6a647b686f556c502f2e1108974437"
+    },
+    "chaos-studio/index.html": {
+      "bytes": 14421,
+      "sha256": "e6a0e8dcf9e32f0d75f4ef0a4a8b19929235d174318834489ff71c7326310eac"
+    },
+    "index.html": {
+      "bytes": 15742,
+      "sha256": "34592c0bcc81e716af8f23716632eb196ac4922994d3f5e30b63790738ae3150"
+    },
+    "model-guide/index.html": {
+      "bytes": 90658,
+      "sha256": "94aeda63096afe2f204caaf4d9d589249d7147097488fdf4b9cd3760a2b654cf"
+    },
+    "prompt-builder/de/index.html": {
+      "bytes": 71540,
+      "sha256": "a0b04213717da6fc4099bcf5bdf779ef6e00d8447ecc70994734689c0dfeb9d2"
+    },
+    "prompt-builder/es/index.html": {
+      "bytes": 71572,
+      "sha256": "62d13c9fe112d296e111b445ef460f6687bd279a3e250f3fb87ad80b54601128"
+    },
+    "prompt-builder/fr/index.html": {
+      "bytes": 71864,
+      "sha256": "4865957a4e8215fdfb03aeb95551f68505c5515c50415c415af045febf49dcf4"
+    },
+    "prompt-builder/index.html": {
+      "bytes": 70406,
+      "sha256": "d7856fcb58c7a9ce4379d12a5769112b7e8a3796cf008458c412074e6f4366e6"
+    },
+    "prompt-builder/it/index.html": {
+      "bytes": 71406,
+      "sha256": "cf01941c4524fa4a56e6b0f82a468092e283f8977e1cb7d9cb02172b75bc71ab"
+    },
+    "prompt-builder/omegaverse/index.html": {
+      "bytes": 90041,
+      "sha256": "6abbba08a62bdf8f9828a5ca2188d603945c699300f8cb005e44e7b5e618241b"
+    }
+  },
+  "generator": "goddessverse-tipsyprompt-export-v1",
+  "source_commit": "3c22f26fb18b144c7c6ea2e2b997f77814929394",
+  "source_path": "experiments/tipsyprompt",
+  "source_repository": "Goddessverse/lab"
+}
