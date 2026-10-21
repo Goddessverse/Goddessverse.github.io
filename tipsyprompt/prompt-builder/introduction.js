@@ -10,6 +10,7 @@
   const redoHistory = [];
   let blockSequence = 0;
   let forceValidation = false;
+  let selectedContentsTarget = null;
   const names = {name: 'Name', description: 'Description', opening: 'Opening', creatorNote: 'Creator Note'};
   const sections = Object.keys(names);
   const sectionId = key => 'intro-' + key;
@@ -390,8 +391,11 @@
   });
   function jump(id) {
     const target = document.getElementById(id);
+    if (!target) return;
     const section = target?.closest('.intro-section');
     if (section) setSectionExpanded(section, true);
+    selectedContentsTarget = id;
+    highlightTOC();
     target?.scrollIntoView({behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start'});
     if (target) { target.tabIndex = -1; target.focus({preventScroll: true}); }
   }
@@ -402,8 +406,12 @@
     let active = links[0];
     for (const link of links) {
       const target = document.getElementById(link.hash.slice(1));
-      if (target.getClientRects().length && target.getBoundingClientRect().top <= threshold) active = link;
+      if (target?.getClientRects().length && target.getBoundingClientRect().top <= threshold) active = link;
     }
+    // A clicked section can be too close to the page bottom to reach the scroll threshold.
+    const selected = links.find(link => link.hash.slice(1) === selectedContentsTarget);
+    if (selected && document.getElementById(selectedContentsTarget)?.getClientRects().length) active = selected;
+    else selectedContentsTarget = null;
     for (const link of links) {
       if (link === active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
     }
@@ -424,7 +432,15 @@
     scrollPending = true; requestAnimationFrame(() => { highlightTOC(); scrollPending = false; });
   }, {passive: true});
   window.addEventListener('resize', highlightTOC);
-  document.addEventListener('builder:panel', () => { highlightTOC(); });
+  function resumeContentsTracking(event) {
+    if (event.target.closest?.('.section-navigation, .intro-toc, .intro-toc-mobile, .sidebar')) return;
+    if (event.type === 'keydown' && (!['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key) || event.target.closest?.('input, textarea, select, [contenteditable="true"]'))) return;
+    selectedContentsTarget = null;
+  }
+  // Return to position-based tracking when the user scrolls or interacts with the page.
+  for (const type of ['wheel', 'touchmove', 'pointerdown', 'keydown']) window.addEventListener(type, resumeContentsTracking, {passive: true});
+  document.addEventListener('builder:panel', () => { selectedContentsTarget = null; highlightTOC(); });
+  document.addEventListener('builder:scroll-top', () => { selectedContentsTarget = null; });
   document.addEventListener('click', event => panel.querySelectorAll('.intro-block-menu[open]').forEach(menu => { if (!menu.contains(event.target)) menu.open = false; }));
   document.addEventListener('keydown', event => { if (event.key === 'Escape') panel.querySelectorAll('.intro-block-menu[open]').forEach(menu => { menu.open = false; menu.querySelector('summary').focus(); }); });
   window.Introduction = {

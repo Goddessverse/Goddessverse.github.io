@@ -144,6 +144,14 @@
       "bytes": 5162,
       "sha256": "8f07ba37f800137af378580f814fdb7fffd5b5093006fdcc551e1e258f615229"
     },
+    "prompt-builder/builder-navigation.css": {
+      "bytes": 11196,
+      "sha256": "34240e2e54035eff601897960df72d2a31172499bdecc009f73d47e5f399a899"
+    },
+    "prompt-builder/builder-navigation.js": {
+      "bytes": 8706,
+      "sha256": "f2add60c9c3c13120be6b44d4be59fe60ea9798f056adf7d171d6b44fded0378"
+    },
     "prompt-builder/de/index.html": {
       "bytes": 71540,
       "sha256": "a0b04213717da6fc4099bcf5bdf779ef6e00d8447ecc70994734689c0dfeb9d2"
@@ -156,9 +164,13 @@
       "bytes": 71864,
       "sha256": "4865957a4e8215fdfb03aeb95551f68505c5515c50415c415af045febf49dcf4"
     },
+    "prompt-builder/hq-theme.js": {
+      "bytes": 1857,
+      "sha256": "d2cd84f59a8e7cc3e91a7a2d5f345102c992bd6b09f854bc1faeae6c53cf0b23"
+    },
     "prompt-builder/index.html": {
-      "bytes": 88348,
-      "sha256": "ed09a8e07b51db009d51f34a3b300d014634fa5ae13762da4d11d72b54310b74"
+      "bytes": 91908,
+      "sha256": "bf2e8188b6b3ed7da9cbf283c02921ec096a9e3c4c452b28ad713e5601d7b39c"
     },
     "prompt-builder/intro-editor.css": {
       "bytes": 8903,
@@ -193,8 +205,8 @@
       "sha256": "ce6e44836ad417edff29fa1b4eebc077bd99d76ac0661087ba4b1b31ca83cb40"
     },
     "prompt-builder/introduction.js": {
-      "bytes": 24182,
-      "sha256": "34aa91b08c3bc7546908f5d7de961e7c979b2ca4c2c1ea6915ef7264a82bf7b8"
+      "bytes": 25387,
+      "sha256": "04a3c39ffbb02f31701f0b0de71f6d3136e1a3114a7ce8bfcb22e19aa448e7eb"
     },
     "prompt-builder/it/index.html": {
       "bytes": 71406,
@@ -226,7 +238,7 @@
     }
   },
   "generator": "goddessverse-tipsyprompt-export-v1",
-  "source_commit": "b9254a53bf3772c08b7c3d55884d93eab09bc157",
+  "source_commit": "41ec21560cc433434ac43f87180c5590a96544ea",
   "source_path": "experiments/app-tools/tipsyprompt",
   "source_repository": "Goddessverse/lab"
 }

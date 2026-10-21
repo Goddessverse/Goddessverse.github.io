@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tipsy Prompt Builder · Goddess Edition</title>
+<script src="hq-theme.js" defer></script>
 <script>
 // Restore the appearance before the first paint; storage is optional.
 try {
@@ -552,16 +553,16 @@ textarea { min-height: 80px; }
 /* Goddess palette and surfaces from the supplied brand guide. */
 :root[data-theme="goddess"] {
   color-scheme: dark;
-  --bg: #121016; --bg-deep: #15131A; --bg-card: #1A171F; --elevated: #221E28;
-  --cream: #F2EFF5; --muted: #A39DAD; --secondary: #A39DAD;
-  --red: #FF2E88; --red-dark: #FF4A99; --green: #D4AF6A; --mint: #D4AF6A; --blush: #F2EFF5;
-  --gold: #D4AF6A; --on-pink: #FFFFFF; --border: #2E2935; --border-mid: #2E2935;
-  --ink: #F2EFF5; --ink-2: #A39DAD; --ink-3: #A39DAD; --ink-4: #A39DAD;
-  --paper: #121016; --paper-2: #15131A; --paper-3: #1A171F;
-  --accent: #FF2E88; --accent-light: rgba(255,46,136,.08);
-  --success: #D4AF6A; --success-light: rgba(212,175,106,.08);
-  --info: #A39DAD; --info-light: rgba(163,157,173,.08);
-  --warn: #D4AF6A; --warn-light: rgba(212,175,106,.08);
+  --bg: var(--gv-bg, #121016); --bg-deep: var(--gv-well, #15131A); --bg-card: var(--gv-surface, #1A171F); --elevated: var(--gv-elevated, #221E28);
+  --cream: var(--gv-text, #F2EFF5); --muted: var(--gv-muted, #A39DAD); --secondary: var(--gv-muted, #A39DAD);
+  --red: var(--gv-pink, #FF2E88); --red-dark: var(--gv-pink-hover, #FF4A99); --green: var(--gv-gold, #D4AF6A); --mint: var(--gv-gold, #D4AF6A); --blush: var(--gv-text, #F2EFF5);
+  --gold: var(--gv-gold, #D4AF6A); --on-pink: #FFFFFF; --border: var(--gv-border, #2E2935); --border-mid: var(--gv-border, #2E2935);
+  --ink: var(--gv-text, #F2EFF5); --ink-2: var(--gv-muted, #A39DAD); --ink-3: var(--gv-muted, #A39DAD); --ink-4: var(--gv-muted, #A39DAD);
+  --paper: var(--gv-bg, #121016); --paper-2: var(--gv-well, #15131A); --paper-3: var(--gv-surface, #1A171F);
+  --accent: var(--gv-pink, #FF2E88); --accent-light: rgba(255,46,136,.08);
+  --success: var(--gv-gold, #D4AF6A); --success-light: rgba(212,175,106,.08);
+  --info: var(--gv-muted, #A39DAD); --info-light: rgba(163,157,173,.08);
+  --warn: var(--gv-gold, #D4AF6A); --warn-light: rgba(212,175,106,.08);
   --radius: 11px; --sans: 'Inter', sans-serif; --serif: 'Outfit', sans-serif;
   --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   --surface-glaze: linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,0) 42%);
@@ -709,6 +710,7 @@ textarea { min-height: 80px; }
 <link rel="stylesheet" href="intro-editor.css?v=20261021-resize">
 <link rel="stylesheet" href="intro-toolbar.css">
 <link rel="stylesheet" href="introduction.css?v=20261021-resize">
+<link rel="stylesheet" href="builder-navigation.css?v=20261021-top">
 </head>
 <body>
 
@@ -725,7 +727,7 @@ textarea { min-height: 80px; }
       <div class="header-menu-panel" role="group" aria-label="Color theme">
         <div class="header-menu-title">Appearance</div>
         <button type="button" class="theme-choice" data-theme-option="rae" aria-pressed="false">Rae's Original Theme<svg class="theme-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
-        <button type="button" class="theme-choice" data-theme-option="goddess" aria-pressed="true">Goddess Theme<svg class="theme-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
+        <button type="button" class="theme-choice" data-theme-option="goddess" aria-pressed="true"><span id="app-theme-choice-label">Goddess Veiled</span><svg class="theme-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
       </div>
     </details>
     <a class="header-link omegaverse-link" href="../prompt-builder/omegaverse/" aria-label="Omegaverse" title="Omegaverse"><span class="omegaverse-label">Omegaverse ↗</span><svg class="omegaverse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h6v-3a7 7 0 1 1 6 0v3h6"/></svg></a>
@@ -747,8 +749,9 @@ textarea { min-height: 80px; }
 
 
 <div class="layout">
-  <button type="button" class="builder-nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="builder-navigation" title="Open navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  <button type="button" class="builder-nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="builder-navigation-shell" title="Open navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
   <button type="button" class="sidebar-backdrop" aria-label="Close navigation" tabindex="-1"></button>
+  <div class="builder-navigation-shell" id="builder-navigation-shell">
   <nav class="sidebar" id="builder-navigation" aria-label="Builder navigation">
     <div class="sidebar-menu">
     <div class="nav-section">
@@ -819,6 +822,17 @@ textarea { min-height: 80px; }
     </div>
     <div class="sidebar-footer"></div>
   </nav>
+  <aside class="section-navigation" aria-labelledby="section-navigation-title">
+    <div class="section-navigation-header">
+      <button type="button" class="section-navigation-back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg>All sections</button>
+      <div class="section-navigation-heading"><div><p>On this page</p><h2 id="section-navigation-title">Introduction</h2></div><span class="section-navigation-symbol" aria-hidden="true"></span></div>
+    </div>
+    <div class="section-navigation-body">
+      <div id="introduction-contents-mount"></div>
+      <nav class="section-contents-links" id="section-contents-links" aria-label="Section table of contents"></nav>
+    </div>
+  </aside>
+  </div>
 
 <script>
 (() => {
@@ -827,39 +841,51 @@ textarea { min-height: 80px; }
   const menus = [...header.querySelectorAll('details')];
   const choices = [...header.querySelectorAll('[data-theme-option]')];
   const sidebar = document.querySelector('.sidebar');
+  const navigationShell = document.getElementById('builder-navigation-shell');
   const footer = document.querySelector('.sidebar-footer');
   const brand = header.querySelector('.header-brand');
   const actions = header.querySelector('.header-actions');
   const navToggle = document.querySelector('.builder-nav-toggle');
-  const narrowScreen = window.matchMedia('(max-width: 768px)');
+  const narrowScreen = window.matchMedia('(max-width: 1100px)');
   let navigationOpen = false;
   function reflectNavigation() {
     const drawer = root.dataset.theme === 'goddess' && narrowScreen.matches;
     root.classList.toggle('navigation-open', drawer && navigationOpen);
-    sidebar.inert = drawer && !navigationOpen;
+    navigationShell.inert = drawer && !navigationOpen;
     document.querySelector('main')?.toggleAttribute('inert', drawer && navigationOpen);
     navToggle.setAttribute('aria-expanded', String(drawer && navigationOpen));
     const label = navigationOpen ? 'Close navigation' : 'Open navigation';
     navToggle.setAttribute('aria-label', label);
     navToggle.title = label;
   }
-  function closeNavigation() {
+  function closeNavigation(restoreFocus = true) {
     navigationOpen = false;
+    root.classList.remove('navigation-contents');
     menus.forEach(menu => { menu.open = false; });
     reflectNavigation();
-    navToggle.focus();
+    if (restoreFocus) navToggle.focus();
   }
   navToggle.addEventListener('click', () => {
     navigationOpen = !navigationOpen;
+    root.classList.remove('navigation-contents');
     reflectNavigation();
     if (!navigationOpen) menus.forEach(menu => { menu.open = false; });
   });
-  document.querySelector('.sidebar-backdrop').addEventListener('click', closeNavigation);
+  document.querySelector('.sidebar-backdrop').addEventListener('click', () => closeNavigation());
   sidebar.addEventListener('click', event => {
-    if (event.target.closest('.nav-item') && narrowScreen.matches && root.dataset.theme === 'goddess') closeNavigation();
+    if (event.target.closest('.nav-item') && narrowScreen.matches && root.dataset.theme === 'goddess') {
+      root.classList.add('navigation-contents');
+      document.querySelector('.section-navigation-back').focus();
+    }
+  });
+  document.addEventListener('builder:close-navigation', () => closeNavigation(false));
+  document.querySelector('.section-navigation-back').addEventListener('click', () => {
+    root.classList.remove('navigation-contents');
+    sidebar.querySelector('.nav-item.active')?.focus();
   });
   narrowScreen.addEventListener('change', () => {
     navigationOpen = false;
+    root.classList.remove('navigation-contents');
     reflectNavigation();
     syncHeaderHeight();
   });
@@ -872,7 +898,14 @@ textarea { min-height: 80px; }
     reflectNavigation();
     syncHeaderHeight();
     choices.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.themeOption === root.dataset.theme)));
+    document.dispatchEvent(new Event('builder:theme'));
   }
+  function reflectAppTheme() {
+    const name = root.dataset.gvTheme === 'rumored-goddess' ? 'Rumored Goddess' : 'Goddess Veiled';
+    document.getElementById('app-theme-choice-label').textContent = root.dataset.gvTheme ? `App theme · ${name}` : name;
+  }
+  window.addEventListener('goddessverse:theme', reflectAppTheme);
+  reflectAppTheme();
   choices.forEach(button => button.addEventListener('click', () => {
     root.dataset.theme = button.dataset.themeOption;
     try { localStorage.setItem('tipsyprompt-theme', root.dataset.theme); } catch (_) {}
@@ -888,6 +921,12 @@ textarea { min-height: 80px; }
     menus.forEach(menu => { if (!menu.contains(event.target)) menu.open = false; });
   });
   document.addEventListener('keydown', event => {
+    if (event.key === 'Tab' && root.classList.contains('navigation-open')) {
+      const focusable = [navToggle, ...navigationShell.querySelectorAll('button, a[href], summary, [tabindex="0"]')].filter(node => !node.disabled && node.getClientRects().length && getComputedStyle(node).visibility !== 'hidden' && !node.closest('[hidden]'));
+      const first = focusable[0], last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    }
     if (event.key !== 'Escape') return;
     const openMenu = menus.find(menu => menu.open);
     if (openMenu) {
@@ -1213,6 +1252,9 @@ textarea { min-height: 80px; }
       </div>
     </div>
 
+    <button type="button" class="back-to-top" aria-label="Back to top" title="Back to top" hidden>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>
+    </button>
   </main>
 </div>
 
@@ -1845,6 +1887,7 @@ addCharacter();
 <script src="intro-toolbar-icons.js"></script>
 <script src="intro-toolbar-data.js"></script>
 <script src="intro-toolbar.js"></script>
-<script src="introduction.js?v=20261021-badges"></script>
+<script src="introduction.js?v=20261021-top"></script>
+<script src="builder-navigation.js?v=20261021-top-60"></script>
 </body>
 </html>
