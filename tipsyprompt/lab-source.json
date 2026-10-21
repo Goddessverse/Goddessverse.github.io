@@ -157,8 +157,8 @@
       "sha256": "4865957a4e8215fdfb03aeb95551f68505c5515c50415c415af045febf49dcf4"
     },
     "prompt-builder/index.html": {
-      "bytes": 81268,
-      "sha256": "e6f5d24a1b04720ead248054a71cfb5c3ab66a1833425f7995067441c524cb5a"
+      "bytes": 88348,
+      "sha256": "ed09a8e07b51db009d51f34a3b300d014634fa5ae13762da4d11d72b54310b74"
     },
     "prompt-builder/intro-editor.css": {
       "bytes": 8903,
@@ -226,7 +226,7 @@
     }
   },
   "generator": "goddessverse-tipsyprompt-export-v1",
-  "source_commit": "1186a64c160ae9c7dfe51dfe43c1ce6022b07ce8",
+  "source_commit": "b44c7f837d4ebec531012fe838dbc258eb865843",
   "source_path": "experiments/tipsyprompt",
   "source_repository": "Goddessverse/lab"
 }

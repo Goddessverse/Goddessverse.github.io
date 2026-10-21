@@ -648,6 +648,63 @@ textarea { min-height: 80px; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Goddess navigation: a full-height sidebar with its identity and utilities at the foot. */
+.header-brand h1 .brand-subtitle { font: inherit; color: inherit; letter-spacing: inherit; }
+.omegaverse-icon, .sidebar-footer, .builder-nav-toggle, .sidebar-backdrop { display: none; }
+[data-theme="goddess"] { --header-height: 0px; }
+[data-theme="goddess"] .builder-header { display: none; }
+[data-theme="goddess"] .layout { min-height: 100dvh; }
+[data-theme="goddess"] .sidebar {
+  display: flex; flex-direction: column; align-items: stretch; gap: 0;
+  top: 0; height: 100dvh; padding: 0; overflow: visible; z-index: 100; border-radius: 0;
+}
+[data-theme="goddess"] .sidebar-menu { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: 24px 0 0; }
+[data-theme="goddess"] .sidebar-footer {
+  display: flex; flex-direction: column; flex-shrink: 0; gap: 16px; padding: 18px 24px 22px;
+  border-top: 1px solid var(--border); background: var(--surface-glaze), var(--bg-card);
+}
+[data-theme="goddess"] .sidebar-footer .header-brand { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+[data-theme="goddess"] .sidebar-footer h1 { font: 600 28px/1.2 var(--serif); letter-spacing: -.03em; white-space: nowrap; }
+[data-theme="goddess"] .sidebar-footer .brand-subtitle { font: 400 12px/1.3 var(--sans); letter-spacing: 0; color: var(--muted); }
+[data-theme="goddess"] .sidebar-footer .edition-label { font-size: 10px; letter-spacing: .025em; }
+[data-theme="goddess"] .sidebar-footer .header-actions { width: auto; margin: 0; justify-content: flex-start; gap: 10px; }
+[data-theme="goddess"] .sidebar-footer #language-menu { order: 1; }
+[data-theme="goddess"] .sidebar-footer .omegaverse-link { order: 2; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border-radius: 50%; }
+[data-theme="goddess"] .omegaverse-label { display: none; }
+[data-theme="goddess"] .omegaverse-icon { display: block; width: 20px; height: 20px; }
+[data-theme="goddess"] .sidebar-footer .header-menu-panel {
+  top: auto; bottom: calc(100% + 10px); left: 0; right: auto;
+  max-height: min(360px, calc(100dvh - 90px)); overflow-y: auto;
+}
+[data-theme="goddess"] .sidebar-footer #language-menu .header-menu-panel { left: -54px; }
+@media (max-width: 768px) {
+  .sidebar-menu { display: contents; }
+  [data-theme="goddess"] .builder-nav-toggle {
+    display: grid; place-items: center; position: fixed; left: 12px; top: 12px; z-index: 130;
+    width: 40px; height: 40px; padding: 0; border: 1px solid var(--border-mid); border-radius: 10px;
+    color: var(--cream); background: var(--bg-card); box-shadow: var(--shadow-soft); cursor: pointer;
+  }
+  .builder-nav-toggle svg { width: 20px; height: 20px; }
+  [data-theme="goddess"] .sidebar {
+    position: fixed; left: 0; top: 0; bottom: 0; width: min(280px, calc(100vw - 56px));
+    height: 100dvh; visibility: hidden; transform: translateX(-100%); border-right: 1px solid var(--border);
+  }
+  [data-theme="goddess"].navigation-open .sidebar { visibility: visible; transform: none; }
+  [data-theme="goddess"].navigation-open { overflow: hidden; }
+  [data-theme="goddess"].navigation-open .sidebar-backdrop {
+    display: block; position: fixed; inset: 0; z-index: 90; padding: 0; border: 0; background: #0008;
+  }
+  [data-theme="goddess"] .sidebar-menu { display: block; padding-top: 72px; }
+  [data-theme="goddess"] .sidebar .nav-section { display: block; }
+  [data-theme="goddess"] .sidebar .nav-section-label { display: block; }
+  [data-theme="goddess"] .sidebar .nav-item { width: 100%; }
+  [data-theme="goddess"] .sidebar-footer .header-brand { flex: 0 1 auto; }
+  [data-theme="goddess"] .sidebar-footer .header-actions > .header-menu:first-child { margin-right: 0; }
+  [data-theme="goddess"] main { padding-top: 72px; }
+  [data-theme="goddess"] .intro-toc-mobile { top: 12px; margin-left: 48px; }
+  [data-theme="goddess"] .auri-toolbar-sticky .intro-editor-toolbar { top: 77px; }
+}
 </style>
 <link rel="stylesheet" href="intro-editor.css?v=20261021-resize">
 <link rel="stylesheet" href="intro-toolbar.css">
@@ -657,7 +714,7 @@ textarea { min-height: 80px; }
 
 <header class="builder-header">
   <div class="header-brand">
-    <h1>Tipsy Prompt Builder</h1>
+    <h1>Tipsy <span class="brand-subtitle">Prompt Builder</span></h1>
     <span class="edition-label">v1.4 Goddess Edition</span>
   </div>
   <div class="header-actions">
@@ -671,7 +728,7 @@ textarea { min-height: 80px; }
         <button type="button" class="theme-choice" data-theme-option="goddess" aria-pressed="true">Goddess Theme<svg class="theme-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg></button>
       </div>
     </details>
-    <a class="header-link" href="../prompt-builder/omegaverse/">Omegaverse ↗</a>
+    <a class="header-link omegaverse-link" href="../prompt-builder/omegaverse/" aria-label="Omegaverse" title="Omegaverse"><span class="omegaverse-label">Omegaverse ↗</span><svg class="omegaverse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20h6v-3a7 7 0 1 1 6 0v3h6"/></svg></a>
     <details class="header-menu" id="language-menu">
       <summary class="header-icon" aria-label="Choose language" title="Choose language">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a17 17 0 0 1 0 18 17 17 0 0 1 0-18Z"/></svg>
@@ -687,48 +744,13 @@ textarea { min-height: 80px; }
   </div>
 </header>
 
-<script>
-(() => {
-  const root = document.documentElement;
-  const header = document.querySelector('.builder-header');
-  const menus = [...header.querySelectorAll('details')];
-  const choices = [...header.querySelectorAll('[data-theme-option]')];
-  function reflectTheme() {
-    choices.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.themeOption === root.dataset.theme)));
-  }
-  choices.forEach(button => button.addEventListener('click', () => {
-    root.dataset.theme = button.dataset.themeOption;
-    try { localStorage.setItem('tipsyprompt-theme', root.dataset.theme); } catch (_) {}
-    reflectTheme();
-    const menu = button.closest('details');
-    menu.open = false;
-    menu.querySelector('summary').focus();
-  }));
-  menus.forEach(menu => menu.querySelector('summary').addEventListener('click', () => {
-    menus.forEach(other => { if (other !== menu) other.open = false; });
-  }));
-  document.addEventListener('click', event => {
-    menus.forEach(menu => { if (!menu.contains(event.target)) menu.open = false; });
-  });
-  document.addEventListener('keydown', event => {
-    if (event.key !== 'Escape') return;
-    const openMenu = menus.find(menu => menu.open);
-    if (openMenu) {
-      openMenu.open = false;
-      openMenu.querySelector('summary').focus();
-      event.preventDefault();
-    }
-  });
-  function syncHeaderHeight() { root.style.setProperty('--header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`); }
-  reflectTheme();
-  syncHeaderHeight();
-  if (window.ResizeObserver) new ResizeObserver(syncHeaderHeight).observe(header);
-  else window.addEventListener('resize', syncHeaderHeight);
-})();
-</script>
+
 
 <div class="layout">
-  <nav class="sidebar">
+  <button type="button" class="builder-nav-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="builder-navigation" title="Open navigation"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  <button type="button" class="sidebar-backdrop" aria-label="Close navigation" tabindex="-1"></button>
+  <nav class="sidebar" id="builder-navigation" aria-label="Builder navigation">
+    <div class="sidebar-menu">
     <div class="nav-section">
       <div class="nav-section-label">Fields</div>
       <button class="nav-item active" id="nav-introduction" onclick="showPanel('introduction', this)">
@@ -794,7 +816,96 @@ textarea { min-height: 80px; }
         <div class="nav-dot"></div> Export prompt ↗
       </button>
     </div>
+    </div>
+    <div class="sidebar-footer"></div>
   </nav>
+
+<script>
+(() => {
+  const root = document.documentElement;
+  const header = document.querySelector('.builder-header');
+  const menus = [...header.querySelectorAll('details')];
+  const choices = [...header.querySelectorAll('[data-theme-option]')];
+  const sidebar = document.querySelector('.sidebar');
+  const footer = document.querySelector('.sidebar-footer');
+  const brand = header.querySelector('.header-brand');
+  const actions = header.querySelector('.header-actions');
+  const navToggle = document.querySelector('.builder-nav-toggle');
+  const narrowScreen = window.matchMedia('(max-width: 768px)');
+  let navigationOpen = false;
+  function reflectNavigation() {
+    const drawer = root.dataset.theme === 'goddess' && narrowScreen.matches;
+    root.classList.toggle('navigation-open', drawer && navigationOpen);
+    sidebar.inert = drawer && !navigationOpen;
+    document.querySelector('main')?.toggleAttribute('inert', drawer && navigationOpen);
+    navToggle.setAttribute('aria-expanded', String(drawer && navigationOpen));
+    const label = navigationOpen ? 'Close navigation' : 'Open navigation';
+    navToggle.setAttribute('aria-label', label);
+    navToggle.title = label;
+  }
+  function closeNavigation() {
+    navigationOpen = false;
+    menus.forEach(menu => { menu.open = false; });
+    reflectNavigation();
+    navToggle.focus();
+  }
+  navToggle.addEventListener('click', () => {
+    navigationOpen = !navigationOpen;
+    reflectNavigation();
+    if (!navigationOpen) menus.forEach(menu => { menu.open = false; });
+  });
+  document.querySelector('.sidebar-backdrop').addEventListener('click', closeNavigation);
+  sidebar.addEventListener('click', event => {
+    if (event.target.closest('.nav-item') && narrowScreen.matches && root.dataset.theme === 'goddess') closeNavigation();
+  });
+  narrowScreen.addEventListener('change', () => {
+    navigationOpen = false;
+    reflectNavigation();
+    syncHeaderHeight();
+  });
+  function reflectTheme() {
+    const destination = root.dataset.theme === 'goddess' ? footer : header;
+    const [themeMenu, languageMenu] = menus;
+    const omegaverse = actions.querySelector('.omegaverse-link');
+    actions.append(...(root.dataset.theme === 'goddess' ? [themeMenu, languageMenu, omegaverse] : [themeMenu, omegaverse, languageMenu]));
+    destination.append(brand, actions);
+    reflectNavigation();
+    syncHeaderHeight();
+    choices.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.themeOption === root.dataset.theme)));
+  }
+  choices.forEach(button => button.addEventListener('click', () => {
+    root.dataset.theme = button.dataset.themeOption;
+    try { localStorage.setItem('tipsyprompt-theme', root.dataset.theme); } catch (_) {}
+    reflectTheme();
+    const menu = button.closest('details');
+    menu.open = false;
+    menu.querySelector('summary').focus();
+  }));
+  menus.forEach(menu => menu.querySelector('summary').addEventListener('click', () => {
+    menus.forEach(other => { if (other !== menu) other.open = false; });
+  }));
+  document.addEventListener('click', event => {
+    menus.forEach(menu => { if (!menu.contains(event.target)) menu.open = false; });
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const openMenu = menus.find(menu => menu.open);
+    if (openMenu) {
+      openMenu.open = false;
+      openMenu.querySelector('summary').focus();
+      event.preventDefault();
+    } else if (navigationOpen) {
+      closeNavigation();
+      event.preventDefault();
+    }
+  });
+  function syncHeaderHeight() { root.style.setProperty('--header-height', `${Math.ceil(header.getBoundingClientRect().height)}px`); }
+  reflectTheme();
+  syncHeaderHeight();
+  if (window.ResizeObserver) new ResizeObserver(syncHeaderHeight).observe(header);
+  else window.addEventListener('resize', syncHeaderHeight);
+})();
+</script>
 
   <main>
 
