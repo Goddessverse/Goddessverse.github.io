@@ -140,6 +140,10 @@
       "bytes": 90658,
       "sha256": "94aeda63096afe2f204caaf4d9d589249d7147097488fdf4b9cd3760a2b654cf"
     },
+    "prompt-builder/INTRO-TOOLBAR-NOTICES.txt": {
+      "bytes": 5162,
+      "sha256": "8f07ba37f800137af378580f814fdb7fffd5b5093006fdcc551e1e258f615229"
+    },
     "prompt-builder/de/index.html": {
       "bytes": 71540,
       "sha256": "a0b04213717da6fc4099bcf5bdf779ef6e00d8447ecc70994734689c0dfeb9d2"
@@ -153,8 +157,44 @@
       "sha256": "4865957a4e8215fdfb03aeb95551f68505c5515c50415c415af045febf49dcf4"
     },
     "prompt-builder/index.html": {
-      "bytes": 85421,
-      "sha256": "20152bfb4d44dfdc5c907bcedb6e4250dc9b8d40067cab7a3783c0d904fdab25"
+      "bytes": 81268,
+      "sha256": "e6f5d24a1b04720ead248054a71cfb5c3ab66a1833425f7995067441c524cb5a"
+    },
+    "prompt-builder/intro-editor.css": {
+      "bytes": 8903,
+      "sha256": "bd6ae598f7533257daa0121bcbe573c9da5ec3e50721e483b82ca074d640aba2"
+    },
+    "prompt-builder/intro-editor.js": {
+      "bytes": 38963,
+      "sha256": "11f57cc4137fc388b9db8ddaa6d910e3dc80a7652df2aea8ae3c277ccb9f88ec"
+    },
+    "prompt-builder/intro-toolbar-data.js": {
+      "bytes": 1160945,
+      "sha256": "2825825333cc6d46e740afa47d8e4cca6425fcf798df579b22bb5847c4225bf0"
+    },
+    "prompt-builder/intro-toolbar-icons.js": {
+      "bytes": 21151,
+      "sha256": "825f4cbf674fa5c91f9b89ab80071afac4ee4b6015275462743cf4bd5ee42488"
+    },
+    "prompt-builder/intro-toolbar.css": {
+      "bytes": 14750,
+      "sha256": "013bf93cb55d888cc30dd1efa183e9130b157f7ac0743b1f587c7dd653007ad8"
+    },
+    "prompt-builder/intro-toolbar.js": {
+      "bytes": 31035,
+      "sha256": "98dd31b18731b4ea233961b6f82a4b01be10c8027d56dba7d2a75101b0d1ec61"
+    },
+    "prompt-builder/introduction-model.js": {
+      "bytes": 5928,
+      "sha256": "a329da9f65bc077dd8d8d06b32c65d258fdfc0ebbd3dd6c73a115bfb6d673058"
+    },
+    "prompt-builder/introduction.css": {
+      "bytes": 13001,
+      "sha256": "ce6e44836ad417edff29fa1b4eebc077bd99d76ac0661087ba4b1b31ca83cb40"
+    },
+    "prompt-builder/introduction.js": {
+      "bytes": 24182,
+      "sha256": "34aa91b08c3bc7546908f5d7de961e7c979b2ca4c2c1ea6915ef7264a82bf7b8"
     },
     "prompt-builder/it/index.html": {
       "bytes": 71406,
@@ -163,10 +203,30 @@
     "prompt-builder/omegaverse/index.html": {
       "bytes": 90041,
       "sha256": "6abbba08a62bdf8f9828a5ca2188d603945c699300f8cb005e44e7b5e618241b"
+    },
+    "prompt-builder/vendor/THIRD-PARTY-NOTICES.txt": {
+      "bytes": 17230,
+      "sha256": "f358e4cbd669bbc4d4b96e5b90ece4b362e721e6b4ae086359f94c2a7ac9aa47"
+    },
+    "prompt-builder/vendor/marked.js": {
+      "bytes": 47918,
+      "sha256": "954a1f4b768ed79d5369574959ea08148aa5c23df44f34cfc37fddc68ee31077"
+    },
+    "prompt-builder/vendor/purify.js": {
+      "bytes": 29790,
+      "sha256": "1bb973289c6a99e511f9209b4159384a6020ead799eca059f065cf213b28e1f3"
+    },
+    "prompt-builder/vendor/turndown-plugin-gfm.js": {
+      "bytes": 4191,
+      "sha256": "cf744cc1b7580f06d64ce236a4ff2630a53d389eccf2133a09d71ca443511912"
+    },
+    "prompt-builder/vendor/turndown.js": {
+      "bytes": 26946,
+      "sha256": "cdf933e0a2085df3c64d6c763331f04345f6c3b25746216e8f1426c9c5253045"
     }
   },
   "generator": "goddessverse-tipsyprompt-export-v1",
-  "source_commit": "4b4f4bc5011e2cfde42d903ecc09094999e146d2",
+  "source_commit": "1186a64c160ae9c7dfe51dfe43c1ce6022b07ce8",
   "source_path": "experiments/tipsyprompt",
   "source_repository": "Goddessverse/lab"
 }

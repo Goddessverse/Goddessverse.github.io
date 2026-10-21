@@ -174,8 +174,8 @@ header span {
   margin-left: auto;
   letter-spacing: .02em;
 }
-.req { background: var(--red); color: #fff; }
-.opt { background: transparent; color: var(--muted); border: 1px solid var(--border-mid); }
+.req { background: #b42333; color: #fff; border: 1px solid #d94c5a; }
+.opt { background: #3d3d45; color: #efeff2; border: 1px solid #5c5c66; }
 .add { background: transparent; color: var(--muted); border: 1px solid var(--border-mid); }
 .vis { background: var(--green); color: #fff; }
 .hid { background: var(--secondary); color: #fff; }
@@ -596,7 +596,6 @@ textarea { min-height: 80px; }
 [data-theme="goddess"] .nav-dot { background: var(--gold); width: 5px; height: 5px; }
 [data-theme="goddess"] .nav-item.active .nav-dot { background: var(--red); }
 [data-theme="goddess"] .badge { font-weight: 500; padding: 1px 7px; }
-[data-theme="goddess"] .req { background: transparent; color: var(--cream); border: 1px solid rgba(212,175,106,.3); }
 [data-theme="goddess"] :is(.vis,.hid,.hyb) { background: var(--elevated); color: var(--muted); border: 1px solid var(--border); }
 [data-theme="goddess"] .vis { color: var(--gold); border-color: rgba(212,175,106,.3); }
 [data-theme="goddess"] main { padding: 32px; width: 100%; min-width: 0; max-width: 1040px; }
@@ -650,6 +649,9 @@ textarea { min-height: 80px; }
   *, *::before, *::after { transition: none !important; scroll-behavior: auto !important; }
 }
 </style>
+<link rel="stylesheet" href="intro-editor.css?v=20261021-resize">
+<link rel="stylesheet" href="intro-toolbar.css">
+<link rel="stylesheet" href="introduction.css?v=20261021-resize">
 </head>
 <body>
 
@@ -729,17 +731,8 @@ textarea { min-height: 80px; }
   <nav class="sidebar">
     <div class="nav-section">
       <div class="nav-section-label">Fields</div>
-      <button class="nav-item active" onclick="showPanel('name', this)">
-        <div class="nav-dot"></div> Name
-        <span class="badge req">required</span>
-      </button>
-      <button class="nav-item" onclick="showPanel('desc', this)">
-        <div class="nav-dot"></div> Description
-        <span class="badge req">required</span>
-      </button>
-      <button class="nav-item" onclick="showPanel('opening', this)">
-        <div class="nav-dot"></div> Opening
-        <span class="badge req">required</span>
+      <button class="nav-item active" id="nav-introduction" onclick="showPanel('introduction', this)">
+        <div class="nav-dot"></div> Introduction
       </button>
     </div>
 
@@ -805,120 +798,42 @@ textarea { min-height: 80px; }
 
   <main>
 
-    <!-- NAME -->
-    <div id="panel-name" class="panel active">
-      <div class="field-block">
-        <div class="field-header">
-          <span class="field-label">Name</span>
-          <span class="field-tag f-name">Name field</span>
-          <span class="badge req">required</span>
+    <!-- INTRODUCTION -->
+    <div id="panel-introduction" class="panel active">
+      <h2 class="introduction-heading">Introduction</h2>
+      <div class="intro-toc-mobile"><label for="intro-jump">Jump to</label><select id="intro-jump" aria-label="Introduction contents"></select></div>
+      <div class="introduction-grid">
+        <div class="introduction-content">
+<section class="intro-section" id="intro-name" aria-labelledby="heading-name">
+  <div class="field-header"><h3 id="heading-name"><button type="button" class="intro-section-toggle" aria-expanded="true" aria-controls="intro-body-name"><svg class="intro-section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>Name</button></h3><span class="intro-help"><button type="button" aria-label="About Name" aria-describedby="tip-name">i</button><span role="tooltip" id="tip-name">Published title. Appears on the storefront card and nameplate. Short, specific, searchable. Not seen by the model.</span></span><span class="intro-requirement req">required</span></div>
+  <div class="intro-section-body" id="intro-body-name">
+  <div class="intro-title-input"><input type="text" id="f-name" placeholder="Name your story" aria-labelledby="heading-name" aria-required="true" aria-describedby="counter-name error-name"><span class="intro-counter" id="counter-name" aria-label="Name character count"></span></div>
+  </div>
+  <span class="intro-error" id="error-name" aria-live="polite"></span>
+</section><section class="intro-section" id="intro-description" aria-labelledby="heading-description">
+  <div class="field-header"><h3 id="heading-description"><button type="button" class="intro-section-toggle" aria-expanded="true" aria-controls="intro-body-description"><svg class="intro-section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>Description</button></h3><span class="intro-help"><button type="button" aria-label="About Description" aria-describedby="tip-description">i</button><span role="tooltip" id="tip-description">Appears on the nameplate and before the opening message. Hook copy + tagline. SEO-relevant. Not seen by the model.<br><br>Each mode keeps its own draft. Only the selected mode is exported.</span></span><span class="intro-requirement req">required</span></div>
+  <div class="intro-section-body" id="intro-body-description">
+  <div class="intro-modes" role="group" aria-label="Description mode"><button type="button" data-intro-section="description" data-intro-mode="native" aria-pressed="true">Native</button><button type="button" data-intro-section="description" data-intro-mode="intermediate" aria-pressed="false">Intermediate</button><button type="button" data-intro-section="description" data-intro-mode="advanced" aria-pressed="false">Advanced</button></div><div class="intro-composer intro-composer-single" id="composer-description"><div id="description-fields"></div><div class="intro-counter-footer"><span class="intro-counter" id="counter-description" aria-label="Description character count"></span></div></div>
+  </div>
+  <span class="intro-error" id="error-description" aria-live="polite"></span>
+</section><section class="intro-section" id="intro-opening" aria-labelledby="heading-opening">
+  <div class="field-header"><h3 id="heading-opening"><button type="button" class="intro-section-toggle" aria-expanded="true" aria-controls="intro-body-opening"><svg class="intro-section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>Opening</button></h3><span class="intro-help"><button type="button" aria-label="About Opening" aria-describedby="tip-opening">i</button><span role="tooltip" id="tip-opening">First message in chat. Seen by user and model. Drop the user mid-scene — not at the beginning but inside it. End on something that invites a response.<br><br>Each mode keeps its own draft. Only the selected mode is exported.</span></span><span class="intro-requirement req">required</span></div>
+  <div class="intro-section-body" id="intro-body-opening">
+  <div class="intro-modes" role="group" aria-label="Opening mode"><button type="button" data-intro-section="opening" data-intro-mode="native" aria-pressed="true">Native</button><button type="button" data-intro-section="opening" data-intro-mode="intermediate" aria-pressed="false">Intermediate</button><button type="button" data-intro-section="opening" data-intro-mode="alternate" aria-pressed="false">Alternate</button></div><div class="intro-composer intro-composer-single" id="composer-opening"><div id="opening-fields"></div><div class="intro-counter-footer"><span class="intro-counter" id="counter-opening" aria-label="Opening character count"></span></div></div>
+  </div>
+  <span class="intro-error" id="error-opening" aria-live="polite"></span>
+</section><section class="intro-section" id="intro-creatorNote" aria-labelledby="heading-creatorNote">
+  <div class="field-header"><h3 id="heading-creatorNote"><button type="button" class="intro-section-toggle" aria-expanded="true" aria-controls="intro-body-creatorNote"><svg class="intro-section-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m6 9 6 6 6-6"/></svg>Creator Note</button></h3><span class="intro-requirement opt">optional</span></div>
+  <div class="intro-section-body" id="intro-body-creatorNote">
+  <div class="intro-composer intro-composer-single" id="composer-creatorNote"><div id="creator-note-editor"></div><div class="intro-counter-footer"><span class="intro-counter" id="counter-creatorNote" aria-label="Creator Note character count"></span></div></div>
+  </div>
+  <span class="intro-error" id="error-creatorNote" aria-live="polite"></span>
+</section>
         </div>
-        <p class="field-note">Published title. Appears on the storefront card and nameplate. Short, specific, searchable. Not seen by the model.</p>
-        <div class="input-group">
-          <label class="input-label">Chatbot title</label>
-          <input type="text" id="f-name" placeholder="Title" oninput="updatePreview()">
-        </div>
-      </div>
-    </div>
-
-    <!-- DESCRIPTION -->
-    <div id="panel-desc" class="panel">
-      <div class="field-block">
-        <div class="field-header">
-          <span class="field-label">Description</span>
-          <span class="field-tag f-desc">Description field</span>
-          <span class="badge req">required</span>
-        </div>
-        <p class="field-note">Appears on the nameplate and before the opening message. Hook copy + tagline. SEO-relevant. Not seen by the model.</p>
-
-        <div class="input-group">
-          <label class="input-label">Hook sentence</label>
-          <span class="input-hint">The world, the stakes, or the dynamic in one line.</span>
-          <input type="text" id="desc-hook1" placeholder="The city doesn't forgive debts — it just waits for the right moment to collect." oninput="updatePreview()">
-        </div>
-        <div class="input-group">
-          <label class="input-label">Second sentence</label>
-          <span class="input-hint">Who {{user}} is in this world, or what pulls them in.</span>
-          <input type="text" id="desc-hook2" placeholder="You've just walked into a room where everyone already knows your name." oninput="updatePreview()">
-        </div>
-        <div class="input-group">
-          <label class="input-label">Third sentence <span style="font-weight:300;color:var(--ink-3)">(optional)</span></label>
-          <span class="input-hint">The tension or question the story will orbit.</span>
-          <input type="text" id="desc-hook3" placeholder="Some debts can't be paid — only passed on." oninput="updatePreview()">
-        </div>
-
-        <div class="input-group">
-          <label class="input-label">Tag delimiter</label>
-          <span class="input-hint">Symbol used between tags in the tagline.</span>
-          <div class="delim-picker" id="delim-picker"></div>
-        </div>
-
-        <div class="input-group">
-          <label class="input-label">Tags</label>
-          <div class="tag-builder">
-            <div class="tag-grid">
-              <div>
-                <div class="tag-group-label">Dynamic</div>
-                <div class="tag-chips" id="tags-dynamic"></div>
-              </div>
-              <div>
-                <div class="tag-group-label">Tone</div>
-                <div class="tag-chips" id="tags-tone"></div>
-              </div>
-              <div>
-                <div class="tag-group-label">Setting</div>
-                <div class="tag-chips" id="tags-setting"></div>
-              </div>
-              <div>
-                <div class="tag-group-label">Cast</div>
-                <div class="tag-chips" id="tags-cast"></div>
-              </div>
-              <div style="grid-column:1/-1">
-                <div class="tag-group-label">Plot &amp; Content</div>
-                <div class="tag-chips" id="tags-plot"></div>
-              </div>
-            </div>
-            <div class="tag-group-label" style="margin-bottom:.3rem">Preview</div>
-            <div class="tag-preview" id="tag-preview">[select tags above]</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- OPENING -->
-    <div id="panel-opening" class="panel">
-      <div class="field-block">
-        <div class="field-header">
-          <span class="field-label">Opening</span>
-          <span class="field-tag f-open">Opening field</span>
-          <span class="badge req">required</span>
-        </div>
-        <p class="field-note">First message in chat. Seen by user and model. Drop the user mid-scene — not at the beginning but inside it. End on something that invites a response.</p>
-        <div class="input-group">
-          <label class="input-label">Opening narration</label>
-          <span class="input-hint">Location, atmosphere, sensory detail. Present tense, second person.</span>
-          <textarea id="open-narration" rows="4" placeholder="*The city hums beneath a bruised sky, the kind of night that makes people careless...*" oninput="updatePreview()"></textarea>
-        </div>
-        <div class="input-group">
-          <label class="input-label">Opening image <span style="font-weight:300;color:var(--ink-3)">(optional)</span></label>
-          <span class="input-hint">Displays between narration and dialogue. Paste a direct image URL.</span>
-          <input type="text" id="open-img-url" placeholder="https://example.com/image.png" oninput="updatePreview()">
-        </div>
-        <div class="input-group">
-          <label class="input-label">Image alt text <span style="font-weight:300;color:var(--ink-3)">(optional)</span></label>
-          <span class="input-hint">Descriptive label for the image — used in the markdown output.</span>
-          <input type="text" id="open-img-alt" placeholder="character name or scene description" oninput="updatePreview()">
-        </div>
-        <div class="input-group">
-          <label class="input-label">Opening dialogue <span style="font-weight:300;color:var(--ink-3)">(optional)</span></label>
-          <span class="input-hint">A character mid-thought, not an introduction.</span>
-          <input type="text" id="open-dialogue" placeholder='"You should not be here," he says, not looking up.' oninput="updatePreview()">
-        </div>
-        <div class="input-group">
-          <label class="input-label">Closing beat</label>
-          <span class="input-hint">One moment of tension, curiosity, or open question. Do not resolve it.</span>
-          <textarea id="open-beat" rows="2" placeholder="*He finally turns to look at you — and something in his expression makes it clear this was never a coincidence.*" oninput="updatePreview()"></textarea>
-        </div>
+        <aside class="intro-toc" aria-label="Introduction table of contents">
+          <p class="intro-toc-title">On this page</p>
+          <nav class="intro-toc-links" id="intro-toc-links"></nav>
+        </aside>
       </div>
     </div>
 
@@ -1135,13 +1050,14 @@ textarea { min-height: 80px; }
         <div class="field-header">
           <span class="field-label">Export Prompt</span>
         </div>
-        <p class="field-note" style="margin-bottom:1rem">Four separate outputs — paste each into its matching Tipsy field. Or download everything as a single .txt file.</p>
+        <p class="field-note" style="margin-bottom:1rem">Paste each into its matching Tipsy field. Or download everything as a single .txt file.</p>
 
         <div class="btn-row" style="margin-bottom:1.5rem">
-          <button class="btn btn-export" onclick="buildAndExport()">⬇ Download .txt</button>
-          <button class="btn btn-primary" onclick="buildAll()">Build preview</button>
+          <button class="btn btn-export" onclick="buildAndExport()">Download</button>
+          <button class="btn btn-primary" onclick="buildAll()">Build Preview</button>
         </div>
 
+        <p id="intro-export-notice" class="intro-export-notice" role="status"></p>
         <div class="export-grid">
           <div class="export-field">
             <div class="export-field-label">
@@ -1167,6 +1083,13 @@ textarea { min-height: 80px; }
             </div>
             <div class="export-box" id="out-open">—</div>
           </div>
+          <div class="export-field">
+            <div class="export-field-label">
+              <span class="field-tag">Creator Notes</span>
+              <button class="copy-btn-sm" onclick="copyField('out-creator-notes',this)">Copy</button>
+            </div>
+            <div class="export-box" id="out-creator-notes"></div>
+          </div>
           <div class="export-field export-instructions">
             <div class="export-field-label">
               <span class="field-tag f-inst">Instructions field</span>
@@ -1189,103 +1112,8 @@ function showPanel(id, btn) {
   document.getElementById('panel-' + id).classList.add('active');
   if (btn) btn.classList.add('active');
   if (id === 'export') buildAll();
-}
-
-const DELIMITERS = [
-  { symbol: '✦', label: '✦' },
-  { symbol: '·', label: '·' },
-  { symbol: '♡', label: '♡' },
-  { symbol: '★', label: '★' },
-  { symbol: '✿', label: '✿' },
-  { symbol: '—', label: '—' },
-  { symbol: '|', label: '|' },
-];
-let selectedDelim = '✦';
-
-function initDelimPicker() {
-  const container = document.getElementById('delim-picker');
-  DELIMITERS.forEach(d => {
-    const chip = document.createElement('span');
-    chip.className = 'delim-chip' + (d.symbol === selectedDelim ? ' selected' : '');
-    chip.textContent = d.label;
-    chip.title = d.symbol;
-    chip.onclick = () => {
-      selectedDelim = d.symbol;
-      document.querySelectorAll('.delim-chip').forEach(c => c.classList.remove('selected'));
-      chip.classList.add('selected');
-      updateTagPreview();
-      updatePreview();
-    };
-    container.appendChild(chip);
-  });
-}
-
-const TAG_DATA = {
-  dynamic: [
-    'ʀɪᴠᴀʟʀʏ','ꜰʀɪᴇɴᴅꜱʜɪᴘ','ᴇɴᴇᴍɪᴇꜱ ᴛᴏ ʟᴏᴠᴇʀꜱ','ᴘʀᴏᴛᴇᴄᴛɪᴠᴇ','ᴅᴏᴍɪɴᴀɴᴛ',
-    'ᴄᴏɴꜰʟɪᴄᴛᴇᴅ','ꜱᴜʙᴍɪꜱꜱɪᴠᴇ','ʏᴀɴᴅᴇʀᴇ','ᴋᴜᴜᴅᴇʀᴇ','ᴛꜱᴜɴᴅᴇʀᴇ',
-    'ꜰᴇʀᴀʟ','ᴠɪʟʟᴀɪɴ','ʜᴇʀᴏ','ᴄʜᴇᴀᴛɪɴɢ','ꜰᴏʀʙɪᴅᴅᴇɴ ʟᴏᴠᴇ',
-    'ꜰᴏʀᴄᴇᴅ ʟᴏᴠᴇ','ᴍᴀʀʀɪᴇᴅ ᴘᴀʀᴛɴᴇʀ','ᴛᴡɪɴꜱ','ʙᴇꜱᴛ ꜰʀɪᴇɴᴅ','ᴅᴇʟɪɴQᴜᴇɴᴛ'
-  ],
-  tone: [
-    'ꜱʟᴏᴡ ʙᴜʀɴ','ᴀɴɢꜱᴛ','ꜰʟᴜꜰꜰ','ᴅᴀʀᴋ','ʜᴜᴍᴏᴜʀ','ᴄᴏᴍꜰᴏʀᴛ',
-    'ᴛᴇɴꜱɪᴏɴ','ᴍʏꜱᴛᴇʀʏ','ʀᴏᴍᴀɴᴛɪᴄ','ʀᴇᴀʟɪꜱᴛɪᴄ','ꜱᴘɪᴄʏ','ᴡʜᴏʟᴇꜱᴏᴍᴇ',
-    'ᴅᴇᴘʀᴇꜱꜱᴇᴅ','ᴅᴇᴀᴅ ᴅᴏᴠᴇ','ᴍᴀᴛᴜʀᴇ','ꜱᴇᴅᴜᴄᴛɪᴠᴇ','ᴠᴀɴɪʟʟᴀ'
-  ],
-  setting: [
-    'ᴀᴜ','ʜɪꜱᴛᴏʀɪᴄᴀʟ','ꜰᴀɴᴛᴀꜱʏ','ᴍᴏᴅᴇʀɴ','ᴄᴏʟʟᴇɢᴇ','ᴄᴀɴᴏɴ',
-    'ʏᴀᴋᴜᴢᴀ','ᴄʀɪᴍᴇ','ᴀɴɪᴍᴇ','ɢᴀᴍᴇ','ʀᴘɢ','ꜱᴄᴇɴᴀʀɪᴏ',
-    'ᴍᴀꜰɪᴀ','ᴍᴀɢɪᴄᴀʟ','ʟᴏʀᴇ'
-  ],
-  cast: [
-    'ᴇɴꜱᴇᴍʙʟᴇ ᴄᴀꜱᴛ','ᴍᴜʟᴛɪ ʀᴏᴜᴛᴇ','ᴏᴄ','ꜰᴀɴ-ᴍᴀᴅᴇ','ᴀɴʏᴘᴏᴠ',
-    'ꜰᴇᴍᴀʟᴇ ᴘᴏᴠ','ᴍᴀʟᴇ ᴘᴏᴠ','ʟɢʙᴛQ+','ᴍᴜʟᴛɪᴘʟᴇ',
-    'ꜰɪᴄᴛɪᴏɴᴀʟ','ᴄᴇʟᴇʙʀɪᴛʏ'
-  ],
-  plot: [
-    'ᴘᴏʟɪᴛɪᴄꜱ','ʀᴇᴠᴇɴɢᴇ','ꜱᴜʀᴠɪᴠᴀʟ','ʜᴇɪꜱᴛ','ꜰᴀᴍᴇ','ᴠɪᴏʟᴇɴᴄᴇ',
-    'ᴛʀᴀᴜᴍᴀ','ᴀᴄᴛɪᴏɴ','ᴄʀɪᴍᴇ','ʜᴏʀʀᴏʀ','ᴍʟᴍ','ᴡʟᴡ','ᴏᴍᴇɢᴀᴠᴇʀꜱᴇ',
-    'ᴅᴇᴍᴏɴ','ᴠᴀᴍᴘɪʀᴇ','ᴍᴏɴꜱᴛᴇʀ','ɴᴏɴ-ʜᴜᴍᴀɴ','ꜰᴜʀʀʏ','ᴍᴜꜱᴄʟᴇ',
-    'ꜰᴇᴍʙᴏʏ','ꜰᴜᴛᴀɴᴀʀɪ','ʙᴅꜱᴍ'
-  ]
-};
-const selectedTags = new Set();
-
-function initTags() {
-  Object.entries(TAG_DATA).forEach(([group, tags]) => {
-    const container = document.getElementById('tags-' + group);
-    tags.forEach(tag => {
-      const chip = document.createElement('span');
-      chip.className = 'tag-chip';
-      chip.textContent = tag;
-      chip.onclick = () => toggleTag(chip, tag);
-      container.appendChild(chip);
-    });
-  });
-}
-
-function toggleTag(chip, tag) {
-  if (selectedTags.has(tag)) {
-    selectedTags.delete(tag);
-    chip.classList.remove('selected');
-  } else {
-    if (selectedTags.size >= 7) return;
-    selectedTags.add(tag);
-    chip.classList.add('selected');
-  }
-  updateTagPreview();
-  updatePreview();
-}
-
-function updateTagPreview() {
-  const tags = [...selectedTags];
-  const d = selectedDelim;
-  const preview = document.getElementById('tag-preview');
-  if (tags.length === 0) {
-    preview.textContent = '[select tags above]';
-  } else {
-    preview.textContent = '[' + d + ' ' + tags.join(' ' + d + ' ') + ']';
-  }
+  window.scrollTo({top: 0, behavior: 'auto'});
+  document.dispatchEvent(new CustomEvent('builder:panel', {detail: {id}}));
 }
 
 let charCount = 0;
@@ -1758,31 +1586,10 @@ Between stages: distance closes through action, not declaration`
 function g(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
 function checked(id) { const el = document.getElementById(id); return el ? el.checked : false; }
 
-function buildName() { return g('f-name') || '[Chatbot Title]'; }
-
-function buildDesc() {
-  const lines = [g('desc-hook1'), g('desc-hook2'), g('desc-hook3')].filter(Boolean);
-  const tags = [...selectedTags];
-  const d = selectedDelim;
-  const tagLine = tags.length
-    ? '\n[' + d + ' ' + tags.join(' ' + d + ' ') + ']'
-    : '\n[' + d + ' ᴛᴀɢ ' + d + ' ᴛᴀɢ ' + d + ' ᴛᴀɢ]';
-  return lines.join('\n') + tagLine;
-}
-
-function buildOpening() {
-  const parts = [];
-  const narr = g('open-narration');
-  if (narr) parts.push(narr);
-  const imgUrl = g('open-img-url');
-  const imgAlt = g('open-img-alt') || 'image';
-  if (imgUrl) parts.push(`![${imgAlt}](${imgUrl})`);
-  const dial = g('open-dialogue');
-  if (dial) parts.push(dial);
-  const beat = g('open-beat');
-  if (beat) parts.push(beat);
-  return parts.join('\n\n') || '*[Opening scene goes here.]*';
-}
+function buildName() { return window.Introduction?.getSources().name || ''; }
+function buildDesc() { return window.Introduction?.getSources().description || ''; }
+function buildOpening() { return window.Introduction?.getSources().opening || ''; }
+function buildCreatorNote() { return window.Introduction?.getSources().creatorNote || ''; }
 
 function buildInstructions() {
   const sections = [];
@@ -1863,6 +1670,7 @@ function buildAll() {
   document.getElementById('out-name').textContent = buildName();
   document.getElementById('out-desc').textContent = buildDesc();
   document.getElementById('out-open').textContent = buildOpening();
+  document.getElementById('out-creator-notes').textContent = buildCreatorNote();
   document.getElementById('out-inst').textContent = buildInstructions();
 }
 
@@ -1872,47 +1680,24 @@ function updatePreview() {
 
 function buildAndExport() {
   buildAll();
-  const name = buildName();
-  const txt = `TIPSY PROMPT EXPORT
-Generated by Tipsy Prompt Builder v1.4
-${'─'.repeat(60)}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FIELD 1 — NAME
-Paste into Tipsy → Name field
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-${name}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FIELD 2 — DESCRIPTION
-Paste into Tipsy → Description field
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-${buildDesc()}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FIELD 3 — OPENING
-Paste into Tipsy → Opening field
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-${buildOpening()}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-FIELD 4 — INSTRUCTIONS
-Paste into Tipsy → Instructions field
-(Model only — not shown to users)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-${buildInstructions()}
-`;
-  const blob = new Blob([txt], { type: 'text/plain;charset=utf-8' });
+  const errors = window.Introduction.validate(true);
+  const notice = document.getElementById('intro-export-notice');
+  notice.textContent = errors.map(error => error.message).join('\n');
+  if (errors.length) { notice.scrollIntoView({block: 'center'}); return; }
+  const sources = window.Introduction.getSources();
+  const fields = [
+    ['NAME', sources.name], ['DESCRIPTION', sources.description], ['OPENING', sources.opening],
+    ['CREATOR NOTES', sources.creatorNote], ['INSTRUCTIONS', buildInstructions()]
+  ].filter(([,content]) => content.trim());
+  const txt = 'TIPSY PROMPT EXPORT\nGenerated by Tipsy Prompt Builder v1.4 Goddess Edition\n\n' +
+    fields.map(([label,content]) => `${label}\n${'─'.repeat(60)}\n\n${content}`).join('\n\n');
+  const blob = new Blob([txt], {type: 'text/plain;charset=utf-8'});
   const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = (name.replace(/\s+/g,'_') || 'tipsy_prompt') + '.txt';
-  a.click();
-  URL.revokeObjectURL(url);
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = (sources.name.replace(/[^\p{L}\p{N}_-]+/gu, '_') || 'tipsy_prompt') + '.txt';
+  anchor.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 function toggleNsfw() {
@@ -1922,19 +1707,33 @@ function toggleNsfw() {
 }
 
 function copyField(id, btn) {
+  buildAll();
+  const field = {'out-name':'name', 'out-desc':'description', 'out-open':'opening', 'out-creator-notes':'creatorNote'}[id];
+  const errors = field ? window.Introduction.validate(true).filter(error => error.field === field) : [];
+  const notice = document.getElementById('intro-export-notice');
+  notice.textContent = errors.map(error => error.message).join('\n');
+  if (errors.length) { notice.scrollIntoView({block:'center'}); return; }
   const text = document.getElementById(id).textContent;
-  if (text === '—') return;
+  if (!text.trim()) { notice.textContent = 'This optional field is empty.'; return; }
   navigator.clipboard.writeText(text).then(() => {
-    const orig = btn.textContent;
+    const original = btn.textContent;
     btn.textContent = '✓ Copied';
     btn.classList.add('flash');
-    setTimeout(() => { btn.textContent = orig; btn.classList.remove('flash'); }, 1500);
-  });
+    setTimeout(() => { btn.textContent = original; btn.classList.remove('flash'); }, 1500);
+  }).catch(() => { notice.textContent = 'Clipboard access was unavailable. Select and copy the output text below.'; });
 }
 
-initDelimPicker();
-initTags();
 addCharacter();
 </script>
+<script src="vendor/marked.js"></script>
+<script src="vendor/turndown.js"></script>
+<script src="vendor/turndown-plugin-gfm.js"></script>
+<script src="vendor/purify.js"></script>
+<script src="introduction-model.js"></script>
+<script src="intro-editor.js?v=20261021-resize"></script>
+<script src="intro-toolbar-icons.js"></script>
+<script src="intro-toolbar-data.js"></script>
+<script src="intro-toolbar.js"></script>
+<script src="introduction.js?v=20261021-badges"></script>
 </body>
 </html>

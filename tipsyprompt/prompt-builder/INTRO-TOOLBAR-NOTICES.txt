@@ -1,0 +1,99 @@
+Auri Formatting Toolbar assets adapted for Tipsy Prompt Builder
+==============================================================
+
+This local bundle reuses the existing Auri toolbar source and authored catalogs from
+experiments/obsidian-plugin/src/plugins/auri-toolbar. No Obsidian runtime, personal
+settings, saved favorites, recent items or credentials are included.
+
+The Unicode style mappings and transformation functions are copied from main.js,
+with a browser-global wrapper and an argument-order adapter. References retained
+from the original source: Unicode Mathematical Alphanumeric Symbols,
+https://www.unicode.org/charts/nameslist/n_1D400.html; screenshot-selected mappings
+from discord-fonts.com; additional alphabet samples from Glyphy and Fontb.
+
+Catalog sources
+---------------
+- Unicode emoji data: Unicode 17.0, 3,944 fully-qualified sequences.
+  https://www.unicode.org/emoji/charts-17.0/emoji-list.html
+  https://www.unicode.org/Public/17.0.0/emoji/emoji-test.txt
+- Symbol catalog: https://www.fontb.com/cool-symbols, retrieved 2026-09-28.
+  Names and categories are retained from the source catalog. No separate upstream
+  catalog license was included in the existing local source. Attribution does not
+  imply an additional license grant.
+- Kaomoji catalog: https://coddy.tech/tools/kaomoji, retrieved 2026-09-28, with
+  legacy entries and user-authored additions preserved. The original project
+  documentation records that no explicit upstream catalog license was identified.
+  Attribution does not imply a license grant. No site application code or articles
+  are included.
+- user-symbols.json: shipped authored character catalog, source labeled
+  "User supplied characters, 2026-09-28"; not runtime settings.
+- combo-data.json: shipped authored combinations/templates, source labeled
+  "User supplied combos, 2026-09-28".
+- Enclosed alphanumeric and control-picture entries: local Unicode-name catalogs.
+
+The grouped category catalog preserves the existing local picker's deduplication
+and ownership rules, including emoji/text presentation cleanup.
+
+Unicode license
+---------------
+UNICODE LICENSE V3
+
+COPYRIGHT AND PERMISSION NOTICE
+
+Copyright © 1991-2026 Unicode, Inc.
+
+NOTICE TO USER: Carefully read the following legal agreement. BY
+DOWNLOADING, INSTALLING, COPYING OR OTHERWISE USING DATA FILES, AND/OR
+SOFTWARE, YOU UNEQUIVOCALLY ACCEPT, AND AGREE TO BE BOUND BY, ALL OF THE
+TERMS AND CONDITIONS OF THIS AGREEMENT. IF YOU DO NOT AGREE, DO NOT
+DOWNLOAD, INSTALL, COPY, DISTRIBUTE OR USE THE DATA FILES OR SOFTWARE.
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of data files and any associated documentation (the "Data Files") or
+software and any associated documentation (the "Software") to deal in the
+Data Files or Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, and/or sell
+copies of the Data Files or Software, and to permit persons to whom the
+Data Files or Software are furnished to do so, provided that either (a)
+this copyright and permission notice appear with all copies of the Data
+Files or Software, or (b) this copyright and permission notice appear in
+associated Documentation.
+
+THE DATA FILES AND SOFTWARE ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY
+KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF
+THIRD PARTY RIGHTS.
+
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR HOLDERS INCLUDED IN THIS NOTICE
+BE LIABLE FOR ANY CLAIM, OR ANY SPECIAL INDIRECT OR CONSEQUENTIAL DAMAGES,
+OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS,
+WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION,
+ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THE DATA
+FILES OR SOFTWARE.
+
+Except as contained in this notice, the name of a copyright holder shall
+not be used in advertising or otherwise to promote the sale, use or other
+dealings in these Data Files or Software without prior written
+authorization of the copyright holder.
+
+
+Lucide v0.468.0
+--------------
+Selected SVG icon definitions extracted from the existing local browser bundle at
+experiments/obsidian-plugin/previews/github/vendor/lucide.min.js.
+
+ISC License
+
+Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT). All other copyright (c) for Lucide are held by Lucide Contributors 2022.
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
