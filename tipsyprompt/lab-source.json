@@ -238,7 +238,7 @@
     }
   },
   "generator": "goddessverse-tipsyprompt-export-v1",
-  "source_commit": "fd5dca8d8a285d47906add7582a701b30e75cda1",
+  "source_commit": "5a93adc162c57bbfa80767d4abba01cbd8c3614d",
   "source_path": "experiments/app-tools/tipsyprompt",
-  "source_repository": "Goddessverse/lab"
+  "source_repository": "CSReign/lab"
 }
